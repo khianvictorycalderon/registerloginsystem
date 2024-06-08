@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="A Simple Register and Login System">
+	<meta property="og:title" content="Simple Register and Login System">
+    <meta property="og:description" content="A Simple Register and Login System with both Frontend and Backend Version">
+    <meta property="og:image" content="images/frontend_snapshot.png">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="PHP_SQL_Backend_Version/style.css">
+    <link rel="icon" href="PHP_SQL_Backend_Version/icons/database.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="main_script.js"></script>
+    <style>
+        #login-success {
+            display:none;
+        }
+    </style>
+    <title>
+        Frontend Register Login System
+    </title>
+</head>
+
+<body>
+    <div id="content">
+        <div id="form-box">
+            <div id="head-title">
+                <div id="title-only">
+                    <span class="title">HTML, CSS, JavaScript, JQuery Frontend <br>Register and Login System</span><br>
+                    <span class="sub">By <a href="https://khianvictorycalderon.github.io/" target="_blank">Khian Calderon</a></span><br>
+                    <hr>
+                </div>
+               </div>
+               <script>
+                  function enable(x) {
+                      $(x).css("display", "block");
+                  }
+                  function disable(x) {
+                      $(x).css("display", "none");
+                  }
+               </script>
+               <div id="reg-or-login">
+                  <span class="title">Login or Register?</span><br><br>
+                  <button onclick="disable('#reg-or-login'); enable('#register-form')"
+                      class="form-btn sub">Register</button>
+                  &nbsp &nbsp &nbsp
+                  <button onclick="disable('#reg-or-login'); enable('#login-form')" class="form-btn sub">Login</button>
+               </div>
+               <div id="register-form">
+                  <div class="left">
+                      <label class="sub" for="reg_name">Register Username: </label><br>
+                      <input class="sub" id="reg_name" type="text"><br>
+                      <label class="sub" for="reg_pass">Password: </label><br>
+                      <input class="sub" id="reg_pass" type="password"><br>
+                      <label class="sub" for="reg_confirm_pass">Confirm Password: </label><br>
+                      <input class="sub" id="reg_confirm_pass" type="password"><br>
+                      <br>
+                      <hr><br>
+                      <div class="center">
+                          <button onclick="clearfields(); disable('#register-form'); enable('#reg-or-login')"
+                              class="form-btn sub">Back</button>
+                          <input class="sub" onclick="register( $('#reg_name'),  $('#reg_pass'), $('#reg_confirm_pass'))" type="submit" value="Register"><br><br>
+                      </div>
+                    </div>
+               </div>
+               <div id="login-form">
+                  <div class="left">
+                      <label class="sub" for="log_name">Username: </label><br>
+                      <input class="sub" id="log_name" type="text"><br>
+                      <label class="sub" for="log_pass">Password: </label><br>
+                      <input class="sub" id="log_pass" type="password"><br>
+                      <br>
+                      <hr><br>
+                      <div class="center">
+                          <button onclick="clearfields(); disable('#login-form'); enable('#reg-or-login')"
+                              class="form-btn sub">Back</button>
+                          <input class="sub" onclick="login( $('#log_name'), $('#log_pass'))" type="submit" value="Login"><br><br>
+                      </div>
+                    </div>
+               </div>
+               <div id="login-success">
+                <span class='sub'>Welcome <span id="loggedName"></span></span>
+                <hr>
+                <span class='sub' id="what-your-message">What's your message for today?</span>
+                <textarea rows="4" class="sub" id="message"></textarea><br>
+                <input class="sub" onclick="logout();" type="submit" value="Logout">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
